@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
 
@@ -6,6 +6,14 @@ import { User } from './user.entity';
 export class UserController {
 
     constructor(private userService: UserService) {}
+
+    // /users/luan
+    @Get('/:userName')
+    public searchByUserName(@Param('userName') userName: string) {
+        const userFinded = this.userService.searchByUsername(userName)
+        
+        return userFinded
+    }
 
     @Post()
     public create(@Body() user: User): User {
