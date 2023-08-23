@@ -7,7 +7,6 @@ export class UserController {
 
     constructor(private userService: UserService) {}
 
-    // /users/luan
     @Get('/:userName')
     public searchByUserName(@Param('userName') userName: string) {
         const userFinded = this.userService.searchByUsername(userName)
@@ -20,5 +19,5 @@ export class UserController {
         const userCreated = this.userService.create(user)
 
         return userCreated
-    }
+    } 
 }
