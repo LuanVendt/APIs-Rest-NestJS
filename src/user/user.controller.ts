@@ -14,7 +14,10 @@ export class UserController {
         const userFinded = this.userService.searchByUsername(userName)
         
         if (!userFinded){
-            throw new NotFoundException();
+            throw new NotFoundException({
+                statusCode: HttpStatus.NOT_FOUND,
+                message: 'Usuário não enccontrado'
+            });
         }
         return userFinded
     }
