@@ -1,10 +1,15 @@
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import { IsUserAlreadyExist } from "./is-user-already-exist.validator";
 
 export class User {
     id: number;
 
     @IsNotEmpty()
     @IsString({ message: 'Nome não pode conter números!' })
+    
+    @IsUserAlreadyExist({
+        message: 'Nome de usuário já cadastrado!'
+    })
     userName: string;
 
     @IsNotEmpty()
