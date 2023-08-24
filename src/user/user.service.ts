@@ -9,7 +9,7 @@ export class UserService {
         email: 'luan@mail.com',
         password: '123456',
         fullName: 'Luan Henrique Vendt',
-        entryDate: new Date()
+        joinDate: new Date()
     }]
     
     public create(user: User): User{
